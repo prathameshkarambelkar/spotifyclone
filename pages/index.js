@@ -1,19 +1,13 @@
-import Head from "next/head";
-import Link from "next/link";
-export default function Home() {
+import Center from "../components/Center";
+import Sidebar from "../components/Sidebar";
+
+export default function Home(props) {
   return (
-    <div>
-      <Head>
-        <title>Spotify Clone</title>
-      </Head>
-      <div>
-        <button>
-          
-          <Link href={"http://localhost:3000/api/auth/login"}>
-            Log into Spotify
-          </Link>
-        </button>
-      </div>
+    <div className="bg-black h-screen overflow-hidden">
+      <main className="flex">
+        <Sidebar />
+        <Center />
+      </main>
     </div>
   );
 }
