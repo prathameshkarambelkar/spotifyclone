@@ -1,11 +1,25 @@
 import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
+import useSpotify from "../hooks/spotifycustom";
+import { data } from "autoprefixer";
 
 function Sidebar() {
-    const {data: session, status} = useSession();
-    if(session){
-        console.log(session)
+  const spotifyApi = useSpotify();
+
+  const { data: session, status } = useSession();
+
+  const [playlists, setplaylists] = useState([]);
+  const [viewplaylists, setviewplaylists] = useState()
+
+  useEffect(() => {
+    if (spotifyApi.getAccessToken()) {
+      spotifyApi.getUserPlaylists().then((data) => {
+        setplaylists(data.body.items);
+      });
     }
+  });
+
   return (
     <div className="p-5 text-gray-500 text-sm overflow-y-scroll scrollbar-hide h-screen">
       <div className=" space-y-4 bg-black  ">
@@ -121,6 +135,15 @@ function Sidebar() {
           <p className="hover:text-white">Your Episodes</p>
         </button>
         <hr className="border-t-2 border-white " />
+        {playlists.map((playlist) => (
+          <p
+            className="text-white"
+            key={playlist.id}
+            onClick={() => setviewplaylist(playlist.id)}
+          >
+            {playlist.name}{" "}
+          </p>
+        ))}
       </div>
     </div>
   );

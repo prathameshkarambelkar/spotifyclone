@@ -16,7 +16,9 @@ async function refreshAccessToken(token) {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             method: "POST",
         })
+
         const refreshedTokens = await response.json()
+        
         if (!response.ok) { throw refreshedTokens }
         return {
             ...token,
