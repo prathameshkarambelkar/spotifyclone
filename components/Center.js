@@ -129,7 +129,7 @@ export default function Center() {
           <div>
             {viewplaylistdata.tracks.items.map((item, index) => {
               return (
-                <div key={index}>
+                <div key={index}  onClick={()=>console.log(viewplaylistdata.tracks.items[index])}>
                   <Song item={item} index={index} />
                 </div>
               );

@@ -145,7 +145,6 @@ function Sidebar() {
               {playlist.name}
             </p>
           ))}
-          <p className="text-white">playlist id is {plId}</p>
           
         </div>
       </div>
