@@ -14,7 +14,7 @@ function Sidebar() {
   const [playlists, setplaylists] = useState([]);
   const [playlistId, setPlaylistId] = useState(plId);
 
-  
+
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {
       spotifyApi.getUserPlaylists().then((data) => {
@@ -141,7 +141,7 @@ function Sidebar() {
           <hr className="border-t-2 border-white " />
           {playlists.map((playlist) => (
             <p
-              className="text-white"
+              className="text-white cursor-pointer"
               key={playlist.id}
               onClick={() => setId(playlist.id)}
             >
