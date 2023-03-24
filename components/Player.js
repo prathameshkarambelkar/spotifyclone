@@ -5,21 +5,21 @@ import useSpotify from "../hooks/spotifycustom";
 import useStore from "../store/store";
 
 export default function Player() {
-  const { data: session, status } = useSession();
+//   const { data: session, status } = useSession();
   const spotifyApi = useSpotify();
   const plId = useStore((state) => state.playlistId);
   const TrackId = useStore((state) => state.currentTrackId);
   const setTrackId = useStore((state) => state.setTrackId);
-  const [currentTrackId, setCurrentTrackId] = useState();
+  const [currentTrackId, setCurrentTrackId] = useState(TrackId);
   const [isPlaying, setIsPlaying] = useState();
 
-  useEffect(() => {
-    if (spotifyApi.getAccessToken()) {
-      spotifyApi.getMyCurrentPlayingTrack().then((data) => {
-        setCurrentTrackId(data.body.item);
-      });
-    }
-  }, [TrackId]);
+//   useEffect(() => {
+//     if (spotifyApi.getAccessToken()) {
+//       spotifyApi.getMyCurrentPlayingTrack().then((data) => {
+//         setCurrentTrackId(data.body.item);
+//       });
+//     }
+//   }, [TrackId]);
 
   return (
     <div>
