@@ -16,7 +16,8 @@ const colors = [
 ];
 export default function Center() {
   const plId = useStore((state) => state.playlistId);
-
+  const currentTrackId = useStore((state) => state.currentTrackId);
+  const setTrackId = useStore((state) => state.setTrackId);
   const { data: session, status } = useSession();
 
   const router = useRouter();
@@ -129,7 +130,12 @@ export default function Center() {
           <div>
             {viewplaylistdata.tracks.items.map((item, index) => {
               return (
-                <div key={index}  onClick={()=>console.log(viewplaylistdata.tracks.items[index])}>
+                <div
+                  key={index}
+                  onClick={() =>
+                    setTrackId(viewplaylistdata.tracks.items[index])
+                  }
+                >
                   <Song item={item} index={index} />
                 </div>
               );

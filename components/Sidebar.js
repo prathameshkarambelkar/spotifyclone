@@ -5,20 +5,23 @@ import useSpotify from "../hooks/spotifycustom";
 import Center from "./Center";
 import useStore from "../store/store";
 function Sidebar() {
+
+
   const spotifyApi = useSpotify();
   const setId = useStore((state)=> state.setId)
   const plId = useStore((state)=> state.playlistId)
   const { data: session, status } = useSession();
   const [playlists, setplaylists] = useState([]);
-  const [playlistId, setPlaylistId] = useState("0Gug5ATgJnrG0C5q4Dh3Iq");
+  const [playlistId, setPlaylistId] = useState(plId);
 
+  
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {
       spotifyApi.getUserPlaylists().then((data) => {
         setplaylists(data.body.items);
       });
     }
-  });
+  },[session]);
 
   return (
     <div className="">
