@@ -19,6 +19,7 @@ export default function Home(props) {
       <main className="flex">
         <Sidebar />
         <Center />
+        
       </main>
       <div className="sticky bottom-0">
         <Player />

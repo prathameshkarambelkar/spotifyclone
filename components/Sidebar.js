@@ -12,7 +12,6 @@ function Sidebar() {
   const plId = useStore((state)=> state.playlistId)
   const { data: session, status } = useSession();
   const [playlists, setplaylists] = useState([]);
-  const [playlistId, setPlaylistId] = useState(plId);
 
 
   useEffect(() => {
@@ -139,6 +138,7 @@ function Sidebar() {
             <p className="hover:text-white">Your Episodes</p>
           </button>
           <hr className="border-t-2 border-white " />
+          
           {playlists.map((playlist) => (
             <p
               className="text-white cursor-pointer"
