@@ -8,9 +8,9 @@ export default function Player() {
 //   const { data: session, status } = useSession();
   const spotifyApi = useSpotify();
   const plId = useStore((state) => state.playlistId);
-  const TrackId = useStore((state) => state.currentTrackId);
+  const currentTrackId = useStore((state) => state.currentTrackId);
   const setTrackId = useStore((state) => state.setTrackId);
-  const [currentTrackId, setCurrentTrackId] = useState(TrackId);
+//   const [currentTrackId, setCurrentTrackId] = useState(TrackId);
   const [isPlaying, setIsPlaying] = useState();
 
 //   useEffect(() => {
@@ -30,13 +30,13 @@ export default function Player() {
           <div className="flex items-center space-x-4">
             <img
               className="hidden md:inline h-12 w-12"
-              src={TrackId.track.album.images[0].url}
+              src={currentTrackId.track.album.images[0].url}
               alt=""
             />
             <div>
-              <h3>{TrackId.track.name}</h3>
+              <h3>{currentTrackId.track.name}</h3>
               <p className="text-sm text-gray-500">
-                {TrackId.track.artists?.[0].name}
+                {currentTrackId.track.artists?.[0].name}
               </p>
             </div>
           </div>

@@ -33,7 +33,7 @@ export default function Center() {
   const [isActive, setActive] = useState("false");
 
   const [viewplaylistdata, setviewplaylistdata] = useState();
-  const [videplaylistId, setviewplaylistId] = useState();
+  const [viewplaylistId, setviewplaylistId] = useState();
 
   const [loading, setloading] = useState(false);
 
@@ -132,8 +132,11 @@ export default function Center() {
               return (
                 <div
                   key={index}
-                  onClick={() =>
+                  onClick={() =>{
                     setTrackId(viewplaylistdata.tracks.items[index])
+                    
+                  }
+                    
                   }
                 >
                   <Song item={item} index={index} />
