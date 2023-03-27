@@ -25,7 +25,6 @@ export default function signin(props) {
               Login
             </button>
           </div>
-
         ))}
       </div>
     </div>
